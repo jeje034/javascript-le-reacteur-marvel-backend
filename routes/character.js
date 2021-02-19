@@ -21,7 +21,7 @@ router.get("/characters", async (req, res) => {
             request += `&name=${name}`;
         }
 
-        console.log(request);
+        //console.log(request);
 
         const response = await axios.get(request);
         res.status(200).json(response.data);
