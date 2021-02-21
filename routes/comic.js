@@ -7,8 +7,11 @@ router.get("/comics", async (req, res) => {
     try {
         const { limit, skip, title } = req.query;
 
-        let request = `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}&skip=${skip}&limit=100`;
+        let request = `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}&skip=${skip}`;
 
+        if (limit) {
+            request += `&limit=${limit}`;
+        }
         if (title) {
             request += `&title=${title}`;
         }
